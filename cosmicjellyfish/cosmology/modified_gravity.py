@@ -1,18 +1,23 @@
 """Hu-Sawicki f(R) nonlinear boosts on a LCDM nonlinear power spectrum: P_NL^{f(R)} = B(k, z) x P_NL^{LCDM}.
 
-Reproduces the f(R) part of the MontePython likelihood euclid_photometric_z_fofr,
+Reproduces the f(R) part of the MontePython likelihood ``euclid_photometric_z_fofr``,
 https://github.com/Sefa76/photometric_fofR/blob/main/codes/euclid_photometric_z_fofr/__init__.py
-(commit of 2023-2024; used in Euclid Collaboration: Koyama et al. 2024, arXiv:2409.03524):
-  * 'winther2019' : block `if self.use_fofR == 'Winther'` (L. ~403): Winther+2019 fitting formula,
-                    f_r_emulators/MGfit_Winther.py (verbatim copy), hasBug = use_bug (False in the .data file).
-  * 'emantis'     : block `elif self.use_fofR == 'emantis'` (L. ~554): e-MANTIS FofrBoost(Omega_m, sigma8_LCDM,
-                    -log10|f_R0|), Omega_m and sigma8_LCDM clipped to the emulator range, 2D spline in (z, k).
-  * extrapolation : block 'Extrapolation for the Different boosts' (L. ~596-645): power law in k above
-                    fofR_kmax and in z above fofR_zmax = 2, fitted on the last 20 % of the range; boost
-                    clipped to [1, 2]; B = 1 outside k_min_h_by_Mpc < k/h < k_max_h_by_Mpc.
+(used in Euclid Collaboration: Koyama et al. 2024, arXiv:2409.03524):
+
+- ``'winther2019'``: block ``if self.use_fofR == 'Winther'`` (L. ~403). Winther+2019 fitting
+  formula, ``f_r_emulators/MGfit_Winther.py`` (verbatim copy), ``hasBug = use_bug`` (False in the
+  ``.data`` file).
+- ``'emantis'``: block ``elif self.use_fofR == 'emantis'`` (L. ~554). e-MANTIS
+  ``FofrBoost(Omega_m, sigma8_LCDM, -log10|f_R0|)``, with Omega_m and sigma8_LCDM clipped to the
+  emulator range, and a 2D spline in (z, k).
+- extrapolation: block 'Extrapolation for the Different boosts' (L. ~596-645). Power law in k
+  above ``fofR_kmax`` and in z above ``fofR_zmax = 2``, fitted on the last 20 % of the range; boost
+  clipped to [1, 2]; B = 1 outside ``k_min_h_by_Mpc < k/h < k_max_h_by_Mpc``.
+
 Variable names follow the likelihood. Units: k in 1/Mpc unless stated (as in the likelihood).
-Defaults are those of euclid_photometric_z_fofr.data: use_bug = False, fofR_interpolation_k_boost = 40,
-fofR_interpolation_z_boost = 4, k_min_h_by_Mpc = 0.001, k_max_h_by_Mpc = 50, z = linspace(0.001, 2.5, 200).
+Defaults are those of ``euclid_photometric_z_fofr.data``: ``use_bug = False``,
+``fofR_interpolation_k_boost = 40``, ``fofR_interpolation_z_boost = 4``,
+``k_min_h_by_Mpc = 0.001``, ``k_max_h_by_Mpc = 50``, ``z = linspace(0.001, 2.5, 200)``.
 """
 
 from copy import deepcopy

@@ -11,13 +11,17 @@ import numpy as np
 import pytest
 import yaml
 
+from cosmicjellyfish.cosmology import modified_gravity
 from cosmicjellyfish.cosmology.cosmology import (
     _class_pk_grid,
     _normalize_camb_import_path,
     boltzmann_code,
 )
 from cosmicjellyfish.cosmology.ee2 import class_ee2_boost, class_ee2_parameters
-from cosmicjellyfish.cosmology.f_r_emulators.MGfit_Winther import pofk_enhancement
+from cosmicjellyfish.cosmology.f_r_emulators.MGfit_Winther import (
+    kazuya_correktion,
+    pofk_enhancement,
+)
 from cosmicjellyfish.cosmology.modified_gravity import fofR_boost_grid
 from cosmicjellyfish.fishermatrix import cosmicfish as cff
 
@@ -246,6 +250,37 @@ def test_fofR_winther_boost_matches_fitting_formula_and_likelihood_bounds():
         np.testing.assert_allclose(boost[fitted, iz], expected, rtol=1e-12)
     with pytest.raises(ValueError, match="Unknown f\\(R\\) boost model"):
         fofR_boost_grid("forge", k, z, lgfR0, h)
+
+
+def test_fofR_emantis_boost_clips_inputs_and_interpolates_emulator(monkeypatch):
+    class FakeFofrBoost:
+        kbins = np.array([0.03, 5.0])
+
+        def predict_boost(self, omega_m, sigma8_lcdm, logfR0, aexp, k):
+            assert (omega_m, sigma8_lcdm, logfR0) == (0.39, 0.60, 5.301)
+            return np.broadcast_to(1.0 + 0.01 * k, (len(aexp), 1, len(k)))
+
+    monkeypatch.setattr(modified_gravity, "_emantis", lambda: FakeFofrBoost())
+    h = 0.67
+    k = np.geomspace(0.02, 4.0, 50) * h
+    boost = fofR_boost_grid("emantis", k, [0.0, 1.0], 5.301, h, Omega_m=0.5, sigma8_lcdm=0.5)
+
+    for column in boost.T:
+        np.testing.assert_allclose(column, 1.0 + 0.01 * k / h, rtol=1e-10)
+
+
+def test_fofR_sigma8_applies_linear_enhancement_and_kazuya_correction(monkeypatch):
+    monkeypatch.setattr(modified_gravity, "pofk_enhancement_linear", lambda z, fR0, k: 1.0)
+    h, lgfR0 = 0.67, 5.301
+    k = np.geomspace(1e-4, 10.0, 4000)
+    pk = 2e4 * (k / 0.02) / (1.0 + (k / 0.02) ** 2.5)
+    x = 8.0 * k / h
+    window = 3.0 * (np.sin(x) - x * np.cos(x)) / x**3
+    sigma8 = np.sqrt(np.trapezoid((k * window) ** 2 * pk / (2.0 * np.pi**2), k))
+
+    result = modified_gravity.sigma8_fofR(k, pk, h, lgfR0)
+
+    assert result == pytest.approx(sigma8 * kazuya_correktion(lgfR0), rel=1e-4)
 
 
 @pytest.mark.parametrize("amplitude", [{"10^9As": 2.1}, {"sigma8": 0.81}])
