@@ -162,12 +162,14 @@ exclude = '''
     | \.venv
     | \bdist\b
     | \bdoc\b
+    | f_r_emulators/MGfit_Winther\.py
 )
 '''
 
 [tool.isort]
 profile = "black"
 multi_line_output = 3
+extend_skip_glob = ["*/f_r_emulators/MGfit_Winther.py"]
 
 # You can override these pyright settings by adding a personal pyrightconfig.json file.
 [tool.pyright]
@@ -176,7 +178,7 @@ reportPrivateImportUsage = false
 [tool.ruff]
 line-length = 115
 target-version = "py310"
-exclude = ["**/*.ipynb"]
+exclude = ["**/*.ipynb", "**/f_r_emulators/MGfit_Winther.py"]
 
 [tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["F401"]

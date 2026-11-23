@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Hu-Sawicki f(R) with hi_class-based codes (frahi_class): the CLASS wrapper is configurable
+  through the `class_module` and `class_object` options (default `classy.Class`), `log10fR0` is
+  translated to `parameters_smg` for `cosmo_model='HuSawicki'`, and CLASS profiles
+  `frahiclass_hs_photo*.yaml` are added.
+- Nonlinear f(R) boosts `winther2019` and `emantis` (`cosmology/modified_gravity.py`): the f(R)
+  code gives the linear spectra and `A_s`, and the nonlinear spectrum is a LCDM CLASS spectrum
+  with the same `A_s` times the boost, reproducing the MontePython likelihood
+  `euclid_photometric_z_fofr` (Sefa76/photometric_fofR); the Winther et al. 2019 fitting formula
+  is a verbatim copy of its `MGfit_Winther.py`.
+
 ## [v2.0.0](https://github.com/santiagocasas/cosmicjellyfish/releases/tag/v2.0.0) - 2026-11-12
 
 ### Fixed
