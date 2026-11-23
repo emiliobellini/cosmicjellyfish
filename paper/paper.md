@@ -39,11 +39,11 @@ affiliations:
     index: 4
   - name: TODO affiliation of Sabarish V. M.
     index: 5
-  - name: Dipartimento di Fisica ``E. Pancini", Universit\`a degli Studi  di Napoli  ``Federico II", Compl. Univ. di Monte S. Angelo, Edificio G,      Via Cinthia, I-80126, Napoli, Italy
+  - name: Dipartimento di Fisica ``E. Pancini", Università degli Studi  di Napoli  ``Federico II", Compl. Univ. di Monte S. Angelo, Edificio G, Via Cinthia, I-80126, Napoli, Italy
     index: 6
-  - name: INFN Sezione di Napoli, Universit\`a degli Studi di Napoli “Federico II”,\\Complesso Universitario di Monte Sant'Angelo, Edificio G,        Via Cinthia, I-80126, Napoli, Italy
+  - name: INFN Sezione di Napoli, Università degli Studi di Napoli “Federico II”,\\Complesso Universitario di Monte Sant'Angelo, Edificio G, Via Cinthia, I-80126, Napoli, Italy
     index: 7
-  - name: Dipartimento di Fisica, Universit\`a degli Studi di Torino, Via P. Giuria 1, I-10125 Torino, Italy
+  - name: Dipartimento di Fisica, Università degli Studi di Torino, Via P. Giuria 1, I-10125 Torino, Italy
     index: 8
   - name: INFN-Sezione di Torino, Via P. Giuria 1, I-10125 Torino, Italy
     index: 9
