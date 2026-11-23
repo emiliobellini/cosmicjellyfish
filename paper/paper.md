@@ -24,7 +24,7 @@ authors:
   - name: Noemi Frusciante
     orcid: 0000-0002-7375-1230
     affiliation: "6, 7"
-  - name:Francesco Pace
+  - name: Francesco Pace
     orcid: 0000-0001-8039-0480
     affiliation: "8, 9, 10, 11"  
     
