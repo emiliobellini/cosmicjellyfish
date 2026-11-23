@@ -21,6 +21,9 @@ authors:
     affiliation: 4
   - name: Sabarish V. M.
     affiliation: 5  # TODO: ORCID, name format
+  - name: Kazuya Koyama
+    orcid: 0000-0001-6727-6915
+    affiliation: 6
 affiliations:
   - name: Theoretische Teilchenphysik und Kosmologie, RWTH Aachen University, Germany 
     index: 2
@@ -32,7 +35,10 @@ affiliations:
     index: 4
   - name: TODO affiliation of Sabarish V. M.
     index: 5
-date: 13 November 2026
+  - name: Institute of Cosmology and Gravitation, University of Portsmouth, UK
+    index: 6
+
+date: 23 November 2026
 bibliography: paper.bib
 ---
 
@@ -459,6 +465,6 @@ Following the all-contributors record of the repository: S. Casas leads and main
 project and contributed to research, validation data, tests, tutorials and documentation.
 S. Pamuk contributed code, design, tests, examples, documentation and code review.
 M. Martinelli contributed code and design. Sabarish V. M. contributed code and
-documentation. **[TODO: expand as needed.]**
+documentation. K. Koyama contributed to conceptualization and methodology. **[TODO: expand as needed.]**
 
 # References
