@@ -34,6 +34,9 @@ authors:
   - name: Francesco Pace
     orcid: 0000-0001-8039-0480
     affiliation: "11, 12, 13, 14"
+  - name: Kazuya Koyama
+    orcid: 0000-0001-6727-6915
+    affiliation: 15
 affiliations:
   - name: Theoretische Teilchenphysik und Kosmologie, RWTH Aachen University, Germany 
     index: 2
@@ -63,7 +66,9 @@ affiliations:
     index: 13
   - name: Instituto de Astrof\'{i}sica e Ci\^{e}ncias do Espa\c{c}o, Faculdade de Ci\^{e}ncias da Universidade de Lisboa, Edif\'{i}cio C8, Campo      Grande, P-1749-016 Lisbon, Portugal
     index: 14
-date: 13 November 2026
+  - name: Institute of Cosmology and Gravitation, University of Portsmouth, UK
+    index: 15
+date: 23 November 2026
 bibliography: paper.bib
 ---
 
@@ -525,6 +530,6 @@ S. Pamuk contributed code, design, tests, examples, documentation and code revie
 M. Martinelli contributed code and design. Sabarish V. M. contributed code and
 documentation. M. Leizerovich contributed the Hu-Sawicki $f(R)$ interface to hi_class-based
 codes (frahi_class) and the Winther and e-MANTIS nonlinear boosts (software, validation).
-**[TODO: expand as needed.]**
+K. Koyama contributed to conceptualization and methodology. **[TODO: expand as needed.]**
 
 # References
