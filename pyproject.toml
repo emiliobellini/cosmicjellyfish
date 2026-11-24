@@ -68,10 +68,12 @@ Documentation = "https://www.santicasas.space/cosmicjellyfish/docs/"
 #     cannot be a dependency. Request access from its authors and build it manually. Do not
 #     ``pip install hiclassy``: the PyPI package of that name is the public hi_class, without
 #     the f(R) model.
-#   - ``emantis`` (only for NONLINEAR model 'emantis') is on PyPI: ``pip install emantis``.
+#   - ``emantis`` (only for NONLINEAR model 'emantis') is on PyPI and is part of the
+#     ``emulators`` extra below.
 # See docs/source/installation.md, section "Hu-Sawicki f(R) gravity".
 emulators = [
     "euclidemu2==1.4.3",
+    "emantis>=1.4.0,<2",
 ]
 # Differentiable (JAX) theory backend, selected with options["code"] = "jaxcosmo".
 # jax-cosmo 0.1.0 imports ``pkg_resources``, which setuptools>=81 no longer ships.

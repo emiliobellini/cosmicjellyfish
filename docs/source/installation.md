@@ -64,7 +64,7 @@ one exception, since conda-forge stops at 8.37 and `pip` moves it to the pinned 
 
 | Extra | Adds |
 | --- | --- |
-| `emulators` | `euclidemu2`, for the EuclidEmulator2 nonlinear boost with CLASS |
+| `emulators` | `euclidemu2` (EuclidEmulator2 nonlinear boost with CLASS) and `emantis` (e-MANTIS f(R) boost) |
 | `jaxcosmo` | JAX, `jax-cosmo` and compatibility dependencies for the optional differentiable backend |
 | `docs` | Sphinx and the theme needed to build this documentation |
 | `dev` | Linters, type checker, `pytest` and coverage, packaging tools |
@@ -96,7 +96,8 @@ that are **not** installed by any extra:
    ```
 
 2. **`emantis`**, only for the `NONLINEAR: model: 'emantis'` boost (the e-MANTIS emulator).
-   It is on PyPI: `pip install emantis`. The `winther2019` boost needs no extra package, since
+   It is on PyPI and is included in the `emulators` extra (`pip install "cosmicjellyfish[emulators]"`
+   or `uv sync --extra emulators`). The `winther2019` boost needs no extra package, since
    its fitting formula ships with cosmicjellyfish.
 
 Without them the f(R) tests in `tests/` skip themselves, and every other backend keeps
