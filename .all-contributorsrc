@@ -110,6 +110,18 @@
         "mentoring",
         "doc"
       ]
+    },
+    {
+      "login": "matiasleize",
+      "name": "Matías Leizerovich",
+      "avatar_url": "https://avatars.githubusercontent.com/u/37784016?v=4",
+      "profile": "https://matiasleize.github.io/",
+      "contributions": [
+        "code",
+        "ideas",
+        "test",
+        "userTesting"
+      ]
     }
   ],
   "contributorsPerLine": 7,
