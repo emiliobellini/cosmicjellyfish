@@ -138,6 +138,20 @@ def test_fofR_boost_grid_settings_override_changes_the_boost_mask():
     np.testing.assert_array_equal(narrow[:3], default[:3])
 
 
+def test_fofR_helpers_accept_an_integer_lgfR0():
+    h = 0.67
+    k = np.array([0.1, 1.0]) * h
+    np.testing.assert_allclose(
+        modified_gravity.fofR_boost_grid("winther2019", k, [0.5], 6, h),
+        modified_gravity.fofR_boost_grid("winther2019", k, [0.5], 6.0, h),
+    )
+    k_lin = np.geomspace(1e-3, 1.0, 50)
+    pk_lin = k_lin / (1 + (k_lin / 0.02) ** 3)
+    assert modified_gravity.sigma8_fofR(k_lin, pk_lin, h, 6) == pytest.approx(
+        modified_gravity.sigma8_fofR(k_lin, pk_lin, h, 6.0)
+    )
+
+
 # ---------------------------------------------------------------------------
 # modified_gravity.fr_boost_nonlinear against fakes of the CLASS runs
 # ---------------------------------------------------------------------------
@@ -199,29 +213,54 @@ class _FakeLcdm:
         self.emptied = True
 
 
-def _fake_bc(nonlinear_conf=None, cb_prescription="neutrino_subtraction", with_lcdm_section=True):
+def _fake_bc(
+    nonlinear_conf=None,
+    cb_prescription="neutrino_subtraction",
+    with_lcdm_section=True,
+    smg_in_yaml=False,
+):
+    """Fake boltzmann_code. With ``smg_in_yaml``, ``parameters_smg`` is fixed in the HuSawicki
+    YAML section instead of coming from ``log10fR0`` in the cosmological parameters."""
     classpars = {
         "ACCURACY": {"accuracy_key": 1},
         "COSMO_SETTINGS": {"setting_key": 2},
+        "HuSawicki": {"gravity_model": "hu_sawicki"},
     }
     if with_lcdm_section:
         classpars["LCDM"] = {"lcdm_only_key": 3}
     if nonlinear_conf is not None:
         classpars["NONLINEAR"] = nonlinear_conf
-    return SimpleNamespace(
-        boltzmann_classpars=classpars,
-        cosmopars={"h": 0.67},
-        nonlinear_model="winther2019",
-        cb_prescription=cb_prescription,
-        results=SimpleNamespace(),
-        changebasis_class=lambda cosmopars: {
+    if smg_in_yaml:
+        classpars["HuSawicki"]["parameters_smg"] = "-5.301, 0.0"
+
+    def changebasis_class(cosmopars):
+        out = {
             "h": cosmopars["h"],
             "Omega_cdm": 0.26,
-            "parameters_smg": "-5.301, 0.0",
             "sigma8": 0.85,
             "A_s": 9.9e-9,
             "ln10^{10}A_s": 3.0,
-        },
+        }
+        if not smg_in_yaml:
+            out["parameters_smg"] = "-5.301, 0.0"
+        return out
+
+    cosmopars = {"h": 0.67}
+    # as boltzmann_code.__init__ builds it for cosmo_model = 'HuSawicki'
+    classcosmopars = {
+        **classpars["ACCURACY"],
+        **classpars["COSMO_SETTINGS"],
+        **classpars["HuSawicki"],
+        **changebasis_class(cosmopars),
+    }
+    return SimpleNamespace(
+        boltzmann_classpars=classpars,
+        classcosmopars=classcosmopars,
+        cosmopars=cosmopars,
+        nonlinear_model="winther2019",
+        cb_prescription=cb_prescription,
+        results=SimpleNamespace(),
+        changebasis_class=changebasis_class,
     )
 
 
@@ -300,6 +339,19 @@ def test_fr_boost_nonlinear_passes_likelihood_inputs_to_the_boost(fr_fakes):
     assert call["Omega_m"] == pytest.approx(0.26 + 0.05 + 0.0)  # Omega0_cdm + Omega_b + Omega_nu
     assert call["sigma8_lcdm"] == pytest.approx(0.8)
     assert call["settings"] == {"k_max_h_by_Mpc": 30.0}
+
+
+def test_fr_boost_nonlinear_reads_parameters_smg_from_the_husawicki_yaml_section(fr_fakes):
+    bc = _fake_bc(smg_in_yaml=True)
+
+    modified_gravity.fr_boost_nonlinear(
+        bc, _FakeFrRun(), np.array([0.01, 1.0]), np.array([0.0, 1.0])
+    )
+
+    (call,) = fr_fakes.boost_calls
+    assert call["lgfR0"] == pytest.approx(5.301)
+    (lcdm,) = _FakeLcdm.instances
+    assert "parameters_smg" not in lcdm.params
 
 
 def test_fr_boost_nonlinear_stores_derived_sigma8_values(fr_fakes):

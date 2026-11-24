@@ -85,9 +85,10 @@ that are **not** installed by any extra:
    authors for access (open an issue in the cosmicjellyfish repository, or contact the
    maintainers, if you do not know whom to ask) and build it following the instructions
    in its own repository. The build must install the Python module `hiclassy` that
-   exposes the class `HiClass`; cosmicjellyfish selects it with the settings
-   `class_module: "hiclassy"` and `class_object: "HiClass"`, which the shipped profiles
-   already set. Install it in the same environment as cosmicjellyfish, next to the
+   exposes the class `HiClass`. Selecting a `frahiclass_hs_photo*.yaml` profile does **not**
+   select this wrapper: set `class_module: "hiclassy"` and `class_object: "HiClass"`
+   explicitly in the run options, next to `class_config_yaml` (the defaults are
+   `classy` and `Class`). Install it in the same environment as cosmicjellyfish, next to the
    official `classy`, which is still used for the LCDM nonlinear spectrum.
 
    ```{warning}

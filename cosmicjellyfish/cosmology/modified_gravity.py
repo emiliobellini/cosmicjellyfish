@@ -63,7 +63,7 @@ def fofR_boost_function(model, lgfR0, h, Omega_m=None, sigma8_lcdm=None, setting
     LCDM cosmology with the same A_s (in the likelihood, the LCDM CLASS run).
     """
     s = {**LKL_DEFAULTS, **(settings or {})}
-    f_R0 = np.power(10, -1 * lgfR0)
+    f_R0 = np.power(10.0, -1 * lgfR0)
     if model == "winther2019":
         fofR_zmax = 2
         fofR_kmax = 10 * h  # In 1/Mpc
@@ -186,7 +186,7 @@ def sigma8_fofR(k, Pk, h, lgfR0):
             W[ix] = 1 - xi**2 / 10
 
     # Get fofR boost to linear spectrum
-    fR0 = np.power(10, -lgfR0)
+    fR0 = np.power(10.0, -lgfR0)
     Boost = np.array([pofk_enhancement_linear(0, fR0, ki / h) for ki in k])
 
     Integr = np.power(k * W, 2) * Pk * Boost / (2 * np.pi**2)
@@ -224,7 +224,10 @@ def fr_boost_nonlinear(bc, classres, k, z):
         **bc.boltzmann_classpars.get("LCDM", {}),
     }
     lcdmpars.update(bc.changebasis_class(cosmopars))
-    log10fR0 = float(str(lcdmpars.pop("parameters_smg")).split(",")[0])
+    # parameters_smg may come from cosmopars (log10fR0) or from the HuSawicki YAML section: read it
+    # from the merged parameters of the f(R) run; the LCDM run must not get it.
+    log10fR0 = float(str(bc.classcosmopars["parameters_smg"]).split(",")[0])
+    lcdmpars.pop("parameters_smg", None)
     for key in ("sigma8", "A_s", "ln10^{10}A_s", "ln_A_s_1e10"):
         lcdmpars.pop(key, None)
     lcdmpars["A_s"] = classres.get_current_derived_parameters(["A_s"])["A_s"]
