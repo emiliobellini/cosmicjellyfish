@@ -7,7 +7,7 @@ paper/
   paper.md        the manuscript (Markdown with a YAML header, JOSS format)
   paper.bib       the bibliography (BibTeX); keys are cited as [@Key] in paper.md
   figures/        the PNG figures referenced by paper.md (versioned, see below)
-  scripts/        scripts that regenerate Figures 1 and 2
+  scripts/        scripts that regenerate Figures 1, 2 and 4
 ```
 
 The GitHub workflow that builds the draft lives in `.github/workflows/draft-pdf.yml`.
@@ -16,7 +16,7 @@ There is no JOSS template to copy into the repository. The template (LaTeX class
 citation style) lives inside the `openjournals/inara` Docker image, which both routes
 below use. The repository only needs `paper.md`, `paper.bib` and the figures.
 
-The three PNG figures referenced by the paper are committed (a narrow exception in
+The four PNG figures referenced by the paper are committed (a narrow exception in
 `.gitignore`), so the CI build can find them. The PDF copies, the `fig2_*` extras and the
 `results/`, `cache/` and `memory_cache/` folders written by the scripts stay ignored.
 
@@ -58,6 +58,7 @@ uv sync --extra jaxcosmo
 cd paper/figures
 uv run python ../scripts/fig1_euclid_probes.py   # about 10 s
 uv run --extra jaxcosmo python ../scripts/fig2_autodiff.py   # about 1 min
+uv run python ../scripts/fig4_survey_comparison.py   # about 2-3 min (needs the symbolic backend)
 ```
 
 The scripts write PNG and PDF files and a `results/` folder into the current directory.
