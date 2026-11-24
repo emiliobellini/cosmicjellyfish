@@ -146,6 +146,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/fpace"><img src="https://avatars.githubusercontent.com/u/11464556?v=4&size=100" width="100px" height="100px" alt="Francesco Pace"/><br /><sub><b>Francesco Pace</b></sub></a><br /><a href="https://github.com/santiagocasas/cosmicjellyfish/commits?author=fpace" title="Code">💻</a> <a href="#design-fpace" title="Design">🎨</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/noefrusciante"><img src="https://avatars.githubusercontent.com/u/358231658?v=4&size=100" width="100px" height="100px" alt="noefrusciante"/><br /><sub><b>noefrusciante</b></sub></a><br /><a href="https://github.com/santiagocasas/cosmicjellyfish/commits?author=noefrusciante" title="Code">💻</a></td>
     </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/domenicosapone"><img src="https://avatars.githubusercontent.com/u/11212509?v=4&size=100" width="100px" height="100px" alt="domenicosapone"/><br /><sub><b>domenicosapone</b></sub></a><br /><a href="https://github.com/santiagocasas/cosmicjellyfish/commits?author=domenicosapone" title="Code">💻</a> <a href="#ideas-domenicosapone" title="Ideas, Planning, & Feedback">🤔</a> <a href="#mentoring-domenicosapone" title="Mentoring">🧑‍🏫</a> <a href="https://github.com/santiagocasas/cosmicjellyfish/commits?author=domenicosapone" title="Documentation">📖</a></td>
+    </tr>
   </tbody>
 </table>
 
