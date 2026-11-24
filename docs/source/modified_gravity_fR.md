@@ -28,6 +28,7 @@ options = {
     "cosmo_model": "HuSawicki",
     "class_config_yaml": "<path>/frahiclass_hs_photo_winther2019.yaml",
     "nonlinear": True,
+    "feedback": 1,
     # survey options as for any photometric forecast
 }
 fiducial = {
@@ -42,6 +43,7 @@ fisher = cosmicfish.FisherMatrix(
     cosmoModel="HuSawicki",
     surveyName="Euclid",
 )
+result = fisher.compute()
 ```
 
 Selecting a `frahiclass_hs_photo*.yaml` profile does **not** select the wrapper: without
