@@ -26,6 +26,10 @@ authors:
     given-names: Francesco
     affiliation: Università degli Studi di Torino
     orcid: https://orcid.org/0000-0001-8039-0480
+  - family-names: Sapone
+    given-names: Domenico
+    affiliation: Departamento de Física, FCFM, Universidad de Chile, Blanco Encalada 2008, Santiago, Chile
+    orcid: https://orcid.org/0000-0001-7089-4503
 keywords:
   - cosmology
   - fishermatrix

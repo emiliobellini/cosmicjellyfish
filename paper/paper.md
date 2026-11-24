@@ -22,6 +22,9 @@ authors:
   - name: V. M. Sabarish
     orcid: 0000-0001-5677-0838
     affiliation: "2, 5"
+  - name: Domenico Sapone
+    orcid: 0000-0001-7089-4503
+    affiliation: 6
 affiliations:
   - name: Theoretische Teilchenphysik und Kosmologie, RWTH Aachen University, Germany 
     index: 2
@@ -33,6 +36,8 @@ affiliations:
     index: 4
   - name: Hamburger Sternwarte, Universität Hamburg, Germany
     index: 5
+  - name: Departamento de Física, FCFM, Universidad de Chile, Blanco Encalada 2008, Santiago, Chile 
+    index: 6
 date: 13 November 2026
 bibliography: paper.bib
 ---
@@ -482,6 +487,8 @@ validated all of this content **[TODO: confirm]**.
 **[TODO: funding; computing time on JURECA at the Jülich Supercomputing Centre for the
 Nautilus validation; acknowledgements to the CosmicFish authors and to the Euclid
 Consortium colleagues involved in the forecast validation.]**
+
+DS acknowledges support from the Fondecyt Regular project N.1251339 (ANID)
 
 # Author contributions
 
