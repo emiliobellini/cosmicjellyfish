@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   with the same `A_s` times the boost, reproducing the MontePython likelihood
   `euclid_photometric_z_fofr` (Sefa76/photometric_fofR); the Winther et al. 2019 fitting formula
   is a verbatim copy of its `MGfit_Winther.py`.
+- Documentation page `modified_gravity_fR` on Hu-Sawicki f(R) forecasts: options, profiles,
+  nonlinear boosts and the frahi_class flags they use.
 
 ## [v2.0.0](https://github.com/santiagocasas/cosmicjellyfish/releases/tag/v2.0.0) - 2026-11-12
 

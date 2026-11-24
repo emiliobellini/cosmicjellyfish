@@ -81,10 +81,10 @@ The `cosmo_model: HuSawicki` profiles (`class/frahiclass_hs_photo*.yaml`) need t
 that are **not** installed by any extra:
 
 1. **`frahi_class`**, a hi_class-based CLASS with the Hu-Sawicki f(R) model. It provides the
-   linear spectra and `A_s` of the f(R) run. **It is currently a private code**: ask its
-   authors for access (open an issue in the cosmicjellyfish repository, or contact the
-   maintainers, if you do not know whom to ask) and build it following the instructions
-   in its own repository. The build must install the Python module `hiclassy` that
+   linear spectra and `A_s` of the f(R) run. **It is currently a private code**
+   ([matiasleize/frahi_class](https://github.com/matiasleize/frahi_class)): to request
+   access, contact Matías Leizerovich (<mleize@df.uba.ar>) or open an issue in the
+   cosmicjellyfish repository. Build it following the instructions in its own repository. The build must install the Python module `hiclassy` that
    exposes the class `HiClass`. Selecting a `frahiclass_hs_photo*.yaml` profile does **not**
    select this wrapper: set `class_module: "hiclassy"` and `class_object: "HiClass"`
    explicitly in the run options, next to `class_config_yaml` (the defaults are
