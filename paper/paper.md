@@ -28,6 +28,12 @@ authors:
   - name: Matías Leizerovich
     orcid: 0000-0002-6438-2285
     affiliation: "7, 8"
+  - name: Noemi Frusciante
+    orcid: 0000-0002-7375-1230
+    affiliation: "9, 10"
+  - name: Francesco Pace
+    orcid: 0000-0001-8039-0480
+    affiliation: "11, 12, 13, 14"
 affiliations:
   - name: Theoretische Teilchenphysik und Kosmologie, RWTH Aachen University, Germany 
     index: 2
@@ -45,6 +51,18 @@ affiliations:
     index: 7
   - name: CONICET - Universidad de Buenos Aires, Instituto de Física de Buenos Aires (IFIBA), Buenos Aires, Argentina
     index: 8
+  - name: Dipartimento di Fisica ``E. Pancini", Università degli Studi  di Napoli  ``Federico II", Compl. Univ. di Monte S. Angelo, Edificio G, Via Cinthia, I-80126, Napoli, Italy
+    index: 9
+  - name: INFN Sezione di Napoli, Università degli Studi di Napoli “Federico II”,\\Complesso Universitario di Monte Sant'Angelo, Edificio G, Via Cinthia, I-80126, Napoli, Italy
+    index: 10
+  - name: Dipartimento di Fisica, Università degli Studi di Torino, Via P. Giuria 1, I-10125 Torino, Italy
+    index: 11
+  - name: INFN-Sezione di Torino, Via P. Giuria 1, I-10125 Torino, Italy
+    index: 12
+  - name: INAF-Istituto Nazionale di Astrofisica, Osservatorio Astrofisico di Torino, strada Osservatorio 20, 10025, Pino Torinese, Italy
+    index: 13
+  - name: Instituto de Astrof\'{i}sica e Ci\^{e}ncias do Espa\c{c}o, Faculdade de Ci\^{e}ncias da Universidade de Lisboa, Edif\'{i}cio C8, Campo      Grande, P-1749-016 Lisbon, Portugal
+    index: 14
 date: 13 November 2026
 bibliography: paper.bib
 ---
