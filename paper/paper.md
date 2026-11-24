@@ -25,6 +25,9 @@ authors:
   - name: Domenico Sapone
     orcid: 0000-0001-7089-4503
     affiliation: 6
+  - name: Matías Leizerovich
+    orcid: 0000-0002-6438-2285
+    affiliation: "7, 8"
 affiliations:
   - name: Theoretische Teilchenphysik und Kosmologie, RWTH Aachen University, Germany 
     index: 2
@@ -38,6 +41,10 @@ affiliations:
     index: 5
   - name: Departamento de Física, FCFM, Universidad de Chile, Blanco Encalada 2008, Santiago, Chile 
     index: 6
+  - name: Universidad de Buenos Aires, Facultad de Ciencias Exactas y Naturales, Departamento de Física, Buenos Aires, Argentina
+    index: 7
+  - name: CONICET - Universidad de Buenos Aires, Instituto de Física de Buenos Aires (IFIBA), Buenos Aires, Argentina
+    index: 8
 date: 13 November 2026
 bibliography: paper.bib
 ---
@@ -490,12 +497,16 @@ Consortium colleagues involved in the forecast validation.]**
 
 DS acknowledges support from the Fondecyt Regular project N.1251339 (ANID)
 
+M.L. is supported by grant PIP 11220200100729CO CONICET and grant 20020170100129BA UBACYT.
+
 # Author contributions
 
 Following the all-contributors record of the repository: S. Casas leads and maintains the
 project and contributed to research, validation data, tests, tutorials and documentation.
 S. Pamuk contributed code, design, tests, examples, documentation and code review.
 M. Martinelli contributed code and design. Sabarish V. M. contributed code and
-documentation. **[TODO: expand as needed.]**
+documentation. M. Leizerovich contributed the Hu-Sawicki $f(R)$ interface to hi_class-based
+codes (frahi_class) and the Winther and e-MANTIS nonlinear boosts (software, validation).
+**[TODO: expand as needed.]**
 
 # References
