@@ -98,6 +98,18 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "domenicosapone",
+      "name": "domenicosapone",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11212509?v=4",
+      "profile": "https://github.com/domenicosapone",
+      "contributions": [
+        "code",
+        "ideas",
+        "mentoring",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
