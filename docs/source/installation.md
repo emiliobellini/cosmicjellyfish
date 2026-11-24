@@ -75,6 +75,35 @@ uv sync --extra emulators                # from a source checkout
 uv sync --extra docs --extra dev         # several extras
 ```
 
+## Hu-Sawicki f(R) gravity (optional, manual install)
+
+The `cosmo_model: HuSawicki` profiles (`class/frahiclass_hs_photo*.yaml`) need two packages
+that are **not** installed by any extra:
+
+1. **`frahi_class`**, a hi_class-based CLASS with the Hu-Sawicki f(R) model. It provides the
+   linear spectra and `A_s` of the f(R) run. **It is currently a private code**: ask its
+   authors for access (open an issue in the cosmicjellyfish repository, or contact the
+   maintainers, if you do not know whom to ask) and build it following the instructions
+   in its own repository. The build must install the Python module `hiclassy` that
+   exposes the class `HiClass`; cosmicjellyfish selects it with the settings
+   `class_module: "hiclassy"` and `class_object: "HiClass"`, which the shipped profiles
+   already set. Install it in the same environment as cosmicjellyfish, next to the
+   official `classy`, which is still used for the LCDM nonlinear spectrum.
+
+   ```{warning}
+   Do **not** run `pip install hiclassy`. The `hiclassy` package on PyPI is the public
+   hi_class, not `frahi_class`, and does not contain the f(R) modifications used here.
+   ```
+
+2. **`emantis`**, only for the `NONLINEAR: model: 'emantis'` boost (the e-MANTIS emulator).
+   It is on PyPI: `pip install emantis`. The `winther2019` boost needs no extra package, since
+   its fitting formula ships with cosmicjellyfish.
+
+Without them the f(R) tests in `tests/` skip themselves, and every other backend keeps
+working. The nonlinear f(R) boosts are described in `cosmicjellyfish/cosmology/modified_gravity.py`.
+
+## Differentiable backend
+
 For the optional differentiable backend, use `uv sync --extra jaxcosmo` from a
 checkout containing that implementation. See {doc}`jaxcosmo` for the supported
 models, derivative providers and notebook setup.

@@ -63,6 +63,13 @@ Changelog = "https://github.com/santiagocasas/cosmicjellyfish/blob/main/CHANGELO
 Documentation = "https://www.santicasas.space/cosmicjellyfish/docs/"
 
 [project.optional-dependencies]
+# Hu-Sawicki f(R) (cosmo_model: HuSawicki) is deliberately NOT an extra:
+#   - ``frahi_class`` (module ``hiclassy``, class ``HiClass``) is a private hi_class-based code, so it
+#     cannot be a dependency. Request access from its authors and build it manually. Do not
+#     ``pip install hiclassy``: the PyPI package of that name is the public hi_class, without
+#     the f(R) model.
+#   - ``emantis`` (only for NONLINEAR model 'emantis') is on PyPI: ``pip install emantis``.
+# See docs/source/installation.md, section "Hu-Sawicki f(R) gravity".
 emulators = [
     "euclidemu2==1.4.3",
 ]
