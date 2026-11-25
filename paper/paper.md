@@ -21,6 +21,9 @@ authors:
     affiliation: 4
   - name: Sabarish V. M.
     affiliation: 5  # TODO: ORCID, name format
+  - name: Emilio Bellini
+    orcid: 0000-0003-4762-0795
+    affiliation: 6
 affiliations:
   - name: Theoretische Teilchenphysik und Kosmologie, RWTH Aachen University, Germany 
     index: 2
@@ -32,6 +35,8 @@ affiliations:
     index: 4
   - name: TODO affiliation of Sabarish V. M.
     index: 5
+  - name: Center for Astrophysics and Cosmology, University of Nova Gorica, Nova Gorica, Slovenia
+    index: 6
 date: 13 November 2026
 bibliography: paper.bib
 ---
